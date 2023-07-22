@@ -1,0 +1,123 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            margin: 0;
+            padding:0 ;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        }
+        .container{
+            width: 100vw;
+            height: 100vh;
+            background-color: burlywood;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            width: 600px;
+            height: 400px;
+            background-color: turquoise;
+            border: 5px solid goldenrod;
+
+
+        }
+        #id ,img{
+            width: 90px;
+            height: 60px;
+            margin-left: 500px;
+        }
+        #newQuotes{
+            background-color: rgb(194, 114, 114);
+            width: 595px;
+            height: 40px;
+            padding-left: 40px;
+        }
+        .txt{
+            font-size: 30px;
+            padding: 10px;
+        }
+    </style>
+</head>
+ <body>
+
+    <!-- <div id="quotes"></div>
+    <div id="author"></div>
+    <button id="newQuotes">New Quotes</button>
+    <button id="tweet">Tweet</button> -->
+
+    <class class="container">
+        <div class="inner">
+            <div class="box">
+                <p id="number">
+                    ClicK the bird to tweet
+                    <img src="twitter.png" alt="tweetme" id="tweet">
+                </p>
+                <div class="txt">
+                    <p id="quotes" class="quotes> </p>
+                    <p id="author" class="author"> </p>
+                </div>
+                
+                <label class="button">
+                    <p id="newQuotes">New Quotes</p>
+                </label>
+            </div>
+        </div>
+    </class>
+
+
+    <script>
+        const quotes=document.getElementById("quotes");
+        const author=document.getElementById("author");
+        const newQuotes=document.getElementById("newQuotes");
+        const tweet=document.getElementById("tweet");
+
+        let realdata="";
+        let quotesdata="";
+
+        const tweetNow=()=>{
+            //to post text on twitter windwo you have to use query selector
+            let tweetpost=`https://twitter.com/intent/tweet?text=${quotesdata.text}`;
+            window.open(tweetpost);
+        }
+
+        const getNewQuotes=()=>{
+            let random_num=Math.floor(Math.random()*1000);
+            console.log(random_num);
+            // document.write(random_num);
+            quotesdata=realdata[random_num];
+            if(quotesdata.author==null) quotesdata.author="Unknown";
+            quotes.innerText=`${quotesdata.text}`;
+            author.innerText=`${quotesdata.author}`;
+        }
+
+        //asynchronous mode
+        const getQuotes=async ()=>{
+            const api="https://type.fit/api/quotes";
+            try{
+                let data=await fetch(api);
+                realdata=await data.json();//converted into json
+                getNewQuotes();
+                // console.log(realdata[0].author);
+                // console.log(realdata[0].text);//show realdata
+            }catch(error){
+                console.log(err);
+            }
+            
+        }
+        //koi click kre to event listen ho
+        newQuotes.addEventListener("click",getNewQuotes); //no need to add parenthesis it automatically call
+
+        tweet.addEventListener("click",tweetNow);
+        getQuotes();
+    </script>
+ </body>
+ </html>
