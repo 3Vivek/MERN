@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.heading{
+    text-align: center;
+    background-color: rgb(255, 215, 164);
+    font-size: 30px;
+    padding-top: 5px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(255, 112, 112);
+    height: 50px;
+}
+hr{
+    height: 3px;
+    background-color: rgb(248, 185, 103);
+    border: none;
+}
+.title h1{
+    font-size: 20px;
+    color: rgb(247, 168, 51);
+}
+.button_menu{
+    margin-top: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.button_menu button{
+    width: 150px;
+    height: 30px;
+    background-color: blanchedalmond;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s linear ;
+}
+.button_menu button:hover{
+    background-color: rgb(252, 92, 145);
+}
+.food{
+    transition: all 0.2s linear 0.2s;
+}
+.food:hover{
+    transform: scale(1.083);
+}
+.Item{
+    margin-top: 5px;
+    margin: 10px;
+    margin-left: 100px;
+    background-color: rgb(255, 215, 164);
+    box-shadow: 0px 10px 20px  rgb(255, 162, 162);
+    border-radius: 6px;
+    width: 300px;
+    height: 200px;
+    float: left;
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content:start;
+
+}
+.price{
+    padding-top: 20px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    top: 10px;
+    color: green;
+    font-size: 10px;
+    gap: 12px;
+    justify-content: start;
+}
+.price a{
+    width: 60px;
+    text-decoration: none;
+    height: 20px;
+    border-radius: 4px;
+    text-align: center;
+    color:rgb(226, 180, 180);
+    background-color: rgba(11, 12, 11, 0.534);
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+}
+.price a:hover{
+    background-color: #fd8de5a6;
+    color:black;
+}
